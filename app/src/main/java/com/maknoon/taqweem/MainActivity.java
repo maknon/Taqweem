@@ -81,14 +81,10 @@ public class MainActivity extends AppCompatActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final HijrahDate hd1 = HijrahDate.now();
-		final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("D", Locale.ENGLISH);
-		page = Integer.parseInt(hd1.format(dtf)) - 1;
-
 		pagerAdapter = new PagerAdapter(getSupportFragmentManager(), getLifecycle());
 		mViewPager = findViewById(R.id.viewpager);
 		mViewPager.setAdapter(pagerAdapter);
-		mViewPager.setCurrentItem(page, false);
+
 		/*
 		mViewPager.setOnClickListener(
 				new View.OnClickListener()
@@ -155,10 +151,10 @@ public class MainActivity extends AppCompatActivity
 		if (id == R.id.menu_gregorian)
 		{
 			final Calendar start = Calendar.getInstance(); // TimeZone.getTimeZone("UTC") will not work since the calender is displayed based on the local but get the input based on UTC
-			start.set(2023, 6, 19, 0 ,0 ,0);
+			start.set(2024, 6, 7, 0 ,0 ,0); // TODO: change with every year
 
 			final Calendar end = Calendar.getInstance();
-			end.set(2024, 6, 6 + 1, 0, 0, 0); // 1 day more to include the same day
+			end.set(2025, 5, 25 + 1, 0, 0, 0); // 1 day more to include the same day
 
 			final ArrayList<CalendarConstraints.DateValidator> listValidators = new ArrayList<>();
 			listValidators.add(DateValidatorPointBackward.before(end.getTimeInMillis())); // disable future year days
@@ -298,6 +294,7 @@ public class MainActivity extends AppCompatActivity
 		fujMenuItem.setVisible(false);
 		uaqMenuItem.setVisible(false);
 		ajmMenuItem.setVisible(false);
+		dxbMenuItem.setVisible(false);
 
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -319,7 +316,7 @@ public class MainActivity extends AppCompatActivity
 		@Override
 		public int getItemCount()
 		{
-			return 354; // TODO: check with every release
+			return 354;
 		}
 	}
 
@@ -328,5 +325,16 @@ public class MainActivity extends AppCompatActivity
 	{
 		savedInstanceState.putInt(EXTRA_page, page);
 		super.onSaveInstanceState(savedInstanceState);
+	}
+
+	@Override
+	protected void onResume()
+	{
+		final HijrahDate hd1 = HijrahDate.now();
+		final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("D", Locale.ENGLISH);
+		page = Integer.parseInt(hd1.format(dtf)) - 1;
+		mViewPager.setCurrentItem(page, false);
+
+		super.onResume();
 	}
 }

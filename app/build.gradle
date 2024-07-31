@@ -9,7 +9,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     namespace 'com.maknoon.taqweem'
-    compileSdk 34
+    compileSdk 35
 
     signingConfigs {
         release {
@@ -23,9 +23,9 @@ android {
     defaultConfig {
         applicationId "com.maknoon.taqweem"
         minSdk 26
-        targetSdk 34
-        versionCode 2
-        versionName "2.0"
+        targetSdk 35
+        versionCode 5
+        versionName "1446"
         vectorDrawables.useSupportLibrary = true
     }
 
