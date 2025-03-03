@@ -1,11 +1,12 @@
-mkdir auh.png, rak.png, dxb.png, shj.png
-mkdir auh.avif, rak.avif, dxb.avif, shj.avif
-mkdir auh.webp, rak.webp, dxb.webp, shj.webp
+mkdir auh.png, rak.png, dxb.png, shj.png, uaq.png
+mkdir auh.avif, rak.avif, dxb.avif, shj.avif, uaq.avif
+mkdir auh.webp, rak.webp, dxb.webp, shj.webp, uaq.webp
 
 ./pdftopng.exe -r 300 -alpha rak.pdf rak.png/t
 ./pdftopng.exe -r 300 -alpha auh.pdf auh.png/t
 ./pdftopng.exe -r 300 -alpha dxb.pdf dxb.png/t
 ./pdftopng.exe -r 300 -alpha shj.pdf shj.png/t
+./pdftopng.exe -r 300 -alpha uaq.pdf uaq.png/t
 #./mutool.exe draw -r 300 -F png -o "./rak.png/%3d.png" rak.pdf
 
 <# Not needed
@@ -19,6 +20,7 @@ Get-ChildItem -Path auh.png/* -Recurse -Include @(Get-Content auh.txt) | Remove-
 Get-ChildItem -Path rak.png/* -Recurse -Include @(Get-Content rak.txt) | Remove-Item -Verbose
 Get-ChildItem -Path dxb.png/* -Recurse -Include @(Get-Content dxb.txt) | Remove-Item -Verbose
 Get-ChildItem -Path shj.png/* -Recurse -Include @(Get-Content shj.txt) | Remove-Item -Verbose
+Get-ChildItem -Path uaq.png/* -Recurse -Include @(Get-Content uaq.txt) | Remove-Item -Verbose
 
 $i = 0
 Get-ChildItem rak.png/* | %{Rename-Item $_ -NewName ('{0:d}.png' -f $i++)}
@@ -28,6 +30,8 @@ $i = 0
 Get-ChildItem auh.png/* | %{Rename-Item $_ -NewName ('{0:d}.png' -f $i++)}
 $i = 0
 Get-ChildItem shj.png/* | %{Rename-Item $_ -NewName ('{0:d}.png' -f $i++)}
+$i = 0
+Get-ChildItem uaq.png/* | %{Rename-Item $_ -NewName ('{0:d}.png' -f $i++)}
 
 # avifenc -> https://jeremylee.sh/bins/
 # Powershell 7, support parallel processing -> https://github.com/PowerShell/PowerShell/releases
@@ -54,6 +58,11 @@ Get-ChildItem shj.png/* | %{Rename-Item $_ -NewName ('{0:d}.png' -f $i++)}
 (Get-ChildItem -Path shj.png -Recurse -ErrorAction SilentlyContinue -Force) | Foreach-Object -Parallel {
 	$basename = $_.BaseName
 	./cwebp.exe -q 50 ./shj.png/$basename.png -o shj.webp/$basename.webp
+}
+
+(Get-ChildItem -Path uaq.png -Recurse -ErrorAction SilentlyContinue -Force) | Foreach-Object -Parallel {
+	$basename = $_.BaseName
+	./cwebp.exe -q 50 ./uaq.png/$basename.png -o uaq.webp/$basename.webp
 }
 
 <#

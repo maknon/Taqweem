@@ -292,7 +292,6 @@ public class MainActivity extends AppCompatActivity
 
 		menu.findItem(R.id.menu_hijri).setVisible(false);
 		fujMenuItem.setVisible(false);
-		uaqMenuItem.setVisible(false);
 		ajmMenuItem.setVisible(false);
 		dxbMenuItem.setVisible(false);
 
