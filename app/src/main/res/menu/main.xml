@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<item
+		android:id="@+id/menu_auh"
+		android:title="@string/auh"
+		android:orderInCategory="97"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_dxb"
+		android:title="@string/dxb"
+		android:orderInCategory="97"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_shj"
+		android:title="@string/shj"
+		android:orderInCategory="98"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_rak"
+		android:title="@string/rak"
+		android:orderInCategory="99"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_ajm"
+		android:title="@string/ajm"
+		android:orderInCategory="100"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_fuj"
+		android:title="@string/fuj"
+		android:orderInCategory="101"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_uaq"
+		android:title="@string/uaq"
+		android:orderInCategory="102"
+		app:showAsAction="never" />
+	<item
+		android:id="@+id/menu_hijri"
+		android:title="@string/hijri"
+		android:orderInCategory="103"
+		android:icon="@drawable/baseline_dark_mode_24"
+		app:showAsAction="ifRoom" />
+	<item
+		android:id="@+id/menu_gregorian"
+		android:title="@string/gregorian"
+		android:orderInCategory="104"
+		android:icon="@drawable/baseline_light_mode_24"
+		app:showAsAction="ifRoom" />
+</menu>

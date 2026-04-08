@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">تقويم الإمارات</string>
+    <string name="auh">أبوظبي</string>
+    <string name="dxb">دبي</string>
+    <string name="shj">الشارقة</string>
+    <string name="rak">رأس الخيمة</string>
+    <string name="ajm">عجمان</string>
+    <string name="fuj">الفجيرة</string>
+    <string name="uaq">أم القيوين</string>
+    <string name="hijri">هجري</string>
+    <string name="gregorian">ميلادي</string>
+</resources>
