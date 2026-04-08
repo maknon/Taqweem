@@ -7,7 +7,7 @@ git branch -D main
 git branch -m main
 git push -f origin main
 git checkout main
-git branch -D latest_branch
+REM git branch -D latest_branch
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 pause
