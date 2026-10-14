@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
 	SharedPreferences mPrefs;
 
 	int page = 0;
-	static String pagesFolder = "auh";
+	static String pagesFolder = "rak";
 
 	PagerAdapter pagerAdapter;
 	ViewPager2 mViewPager;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity
 		else
 			page = mPrefs.getInt(EXTRA_page, 0);
 
-		pagesFolder = mPrefs.getString(EXTRA_pagesFolder, "auh");
+		pagesFolder = mPrefs.getString(EXTRA_pagesFolder, "rak");
 
 		EdgeToEdge.enable(this);
 
@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity
 
 		fujMenuItem.setVisible(false);
 		ajmMenuItem.setVisible(false);
-		dxbMenuItem.setVisible(false);
 
 		final MenuItem hijriMenuItem = menu.findItem(R.id.menu_hijri);
 		hijriMenuItem.setVisible(false);
@@ -166,11 +165,11 @@ public class MainActivity extends AppCompatActivity
 
 		if (id == R.id.menu_gregorian)
 		{
-			final Calendar start = Calendar.getInstance(); // TimeZone.getTimeZone("UTC") will not work since the calender is displayed based on the local but get the input based on UTC
-			start.set(2025, 5, 26, 0 ,0 ,0); // TODO: change with every year
+			final Calendar start = Calendar.getInstance(); // TimeZone.getTimeZone("UTC") will not work since the calendar is displayed based on the local but get the input based on UTC
+			start.set(2026, 5, 16, 0 ,0 ,0); // TODO: change with every year, month starts from 0
 
 			final Calendar end = Calendar.getInstance();
-			end.set(2026, 5, 15 + 1, 0, 0, 0); // 1 day more to include the same day
+			end.set(2027, 5, 5 + 1, 0, 0, 0); // 1 day more to include the same day
 
 			final ArrayList<CalendarConstraints.DateValidator> listValidators = new ArrayList<>();
 			listValidators.add(DateValidatorPointBackward.before(end.getTimeInMillis())); // disable future year days
